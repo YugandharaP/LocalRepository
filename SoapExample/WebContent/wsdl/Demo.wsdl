@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://DefaultNamespace" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://DefaultNamespace" xmlns:intf="http://DefaultNamespace" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://DefaultNamespace" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="name">
+    <complexType/>
+   </element>
+   <element name="nameResponse">
+    <complexType>
+     <sequence>
+      <element name="nameReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="value">
+    <complexType/>
+   </element>
+   <element name="valueResponse">
+    <complexType>
+     <sequence>
+      <element name="valueReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="valueRequest">
+
+      <wsdl:part element="impl:value" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="valueResponse">
+
+      <wsdl:part element="impl:valueResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="nameRequest">
+
+      <wsdl:part element="impl:name" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="nameResponse">
+
+      <wsdl:part element="impl:nameResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Demo">
+
+      <wsdl:operation name="name">
+
+         <wsdl:input message="impl:nameRequest" name="nameRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:nameResponse" name="nameResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="value">
+
+         <wsdl:input message="impl:valueRequest" name="valueRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:valueResponse" name="valueResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="DemoSoapBinding" type="impl:Demo">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="name">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="nameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="nameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="value">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="valueRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="valueResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="DemoService">
+
+      <wsdl:port binding="impl:DemoSoapBinding" name="Demo">
+
+         <wsdlsoap:address location="http://localhost:8080/SoapExample/services/Demo"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
